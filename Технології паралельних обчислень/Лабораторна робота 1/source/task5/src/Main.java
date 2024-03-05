@@ -2,23 +2,31 @@ public class Main
 {
     public static void main(String[] args) throws InterruptedException
     {
-        MyThread thread1 = new MyThread("-");
-        thread1.start();
-        thread1.join();
+        System.out.println("Without synchronization");
+        Thread T1 = new Thread(new MyThread("-"));
+        Thread T2 = new Thread(new MyThread("|"));
 
-        MyThread thread2 = new MyThread("|");
-        thread2.start();
-        thread2.join();
+        T1.start();
+        T2.start();
 
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
-                thread1.print();
-                thread1.join();
+        T1.join();
+        T2.join();
 
-                thread2.print();
-                thread2.join();
-            }
-            System.out.println();
-        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("With synchronization");
+
+        MySync sync = new MySync();
+        Thread T3 = new Thread(new MyThreadSync("-", true, sync));
+        Thread T4 = new Thread(new MyThreadSync("|", false, sync));
+
+        T3.start();
+        T4.start();
+
+        T3.join();
+        T4.join();
     }
 }

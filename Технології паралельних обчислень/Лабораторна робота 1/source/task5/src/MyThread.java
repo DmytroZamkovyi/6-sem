@@ -1,23 +1,20 @@
 public class MyThread extends Thread
 {
-    private final String output_str;
+    private final String s;
 
     public MyThread (String s)
     {
-        this.output_str = s;
+        this.s = s;
     }
 
     @Override
     public void run()
     {
-        System.out.println("START thread - " + Thread.currentThread().getName());
-    }
-
-    public void print()
-    {
-        try {
-            System.out.print(this.output_str);
-            Thread.sleep(0);
-        } catch (InterruptedException ignored) { }
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 100; j++) {
+                System.out.print(this.s);
+            }
+            System.out.println();
+        }
     }
 }
