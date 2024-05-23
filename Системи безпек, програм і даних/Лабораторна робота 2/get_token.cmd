@@ -1,0 +1,1 @@
+curl --request POST --url https://kpi.eu.auth0.com/oauth/token --header "content-type: application/x-www-form-urlencoded" --data grant_type=client_credentials --data client_id=JIvCO5c2IBHlAe2patn6l6q5H35qxti0 --data client_secret=ZRF8Op0tWM36p1_hxXTU-B0K_Gq_-eAVtlrQpY24CasYiDmcXBhNS6IJMNcz1EgB --data audience=https://kpi.eu.auth0.com/api/v2/
